@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    position: relative;
+    z-index: 10; /* Ensure header is above the dropdown content */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: linear-gradient(60deg, #ffd900c4, #ffd700, #ffffff, #ffffff, #c0c0c0, #c0c0c0, #c0c0c0);
+    background-size: 150% 150%; /* Ensures the gradient spans a large area for smooth animation */
+    color: white;
+    padding: 10px 20px;
+    position: fixed; /* Ensure navbar is above other elements */
+    z-index: 20; /* Higher z-index to stay above the dropdown content */
+    animation: gradient-animation 5s linear infinite; /* Apply the gradient animation */
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: black; /* Ensure the logo color remains visible */
+}
+
+.navbar .menu {
+    display: flex;
+    align-items: center;
+    position: relative; /* Ensure menu items are above dropdown content */
+    z-index: 20; /* Same z-index as navbar */
+}
+
+.navbar .menu a {
+    color: black; /* Ensure the text color is visible on gradient background */
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: relative;
+    transition: color 0.3s ease-in-out; /* Smooth transition for text color change */
+}
+
+.navbar .menu a:hover {
+    background-color: #555;
+    color: white; /* Change text color on hover */
+}
+
+.navbar .menu .dropdown {
+    position: relative;
+}
+
+.navbar .menu .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #c0c0c0;
+    min-width: 160px;
+    top: 100%;
+    left: 0;
+    z-index: 10; /* Lower z-index to appear behind the navbar */
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.navbar .menu .dropdown-content a {
+    color: black;
+    padding: 10px;
+    text-align: left;
+}
+
+.navbar .menu .dropdown-content a:hover {
+    background-color: #555;
+    color: white;
+}
+
+.navbar .menu .dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+.toggle-button {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+/* Existing CSS */
+
+.video-container {
+    margin-top: 3%;
+    background-color: #8ecae6;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Ensure the video fits within the container */
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensure the video covers the entire container */
+    pointer-events: none; /* Prevent the video controls from being shown on hover */
+}
+
+/* Other existing CSS */
+
+
+.description-container {
+    background-color: #adb5bd;
+    padding: 2rem;
+    text-align: center;
+    color: #fff;
+}
+
+.scroll-gallery-container {
+    background-color: #8ecae6;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scroll-gallery-container .gallery {
+    display: flex;
+    gap: 1rem;
+}
+
+.scroll-gallery-container .gallery-item {
+    background-color: #fff;
+    padding: 1rem;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-gallery-container .gallery-buttons {
+    margin-top: 1rem;
+}
+
+.scroll-gallery-container .gallery-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.footer-container {
+    background-color: #495057;
+    padding: 1rem;
+    text-align: center;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: left;
+        background-color: silver;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 15; /* Ensure it appears above dropdown-content */
+    }
+
+    .navbar .menu a {
+        margin: 10px 0;
+        padding: 10px;
+    }
+
+    .navbar .menu.show {
+        display: flex;
+    }
+
+    .toggle-button {
+        display: block;
+        align-self: flex-end;
+    }
+
+    .navbar .menu .dropdown-content {
+        position: static;
+        display: none;
+        width: 100%; /* Full width in mobile view */
+    }
+
+    .navbar .menu .dropdown-content.show {
+        display: flex;
+    }
+    .video-container {
+        margin-top: -17%;
+    margin-bottom: -38%;
+    background-color: #ffffff;
+    height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .logo {
+        font-size: 20px;
+    }
+
+    .navbar .menu a {
+        padding: 5px 0;
+    }
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
