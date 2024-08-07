@@ -11,6 +11,8 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-color: linear-gradient(135deg, #f0f0f0, #d9d9d9);
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 header {
@@ -27,7 +29,6 @@ header {
     background-size: 150% 150%; /* Ensures the gradient spans a large area for smooth animation */
     color: white;
     padding: 10px 20px;
-    position: fixed; /* Ensure navbar is above other elements */
     z-index: 20; /* Higher z-index to stay above the dropdown content */
     animation: gradient-animation 5s linear infinite; /* Apply the gradient animation */
 }
@@ -114,7 +115,7 @@ header {
 
 .video-container {
     margin-top: 3%;
-    background-color: #8ecae6;
+    background-color: #ffffff;
     height: 400px;
     width: 100%;
     display: flex;
